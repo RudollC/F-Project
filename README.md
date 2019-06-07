@@ -13,18 +13,19 @@ The toughest part of this project was coding the gravity of the bird.
 ```Java 
 int gamestate = 0;
 
+
 void draw() {
   if(gamestate == 1) {
     image(backgroundImage, 0,0,width,height);
   }else{
     background(startscreenImage);
   }
-  
+ 
   void mousePressed() {
   action();
   if(gamestate == 0) {
   }
- gamestate = 1;
+gamestate = 1;
   }
 ```
 
