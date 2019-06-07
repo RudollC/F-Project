@@ -1,10 +1,10 @@
-class Obstacle {
+class Pipe {
   float initX;
   float topX;
   float topY;
   float w = 50;
 
-  Obstacle(float initialTopX, float initialTopY) {
+  Pipe(float initialTopX, float initialTopY) {
     initX = initialTopX;
     topX = initialTopX;
     topY = initialTopY;

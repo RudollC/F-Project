@@ -1,23 +1,43 @@
 Bird bird;
-Obstacle[] obstacles = new Obstacle[2];
+Pipe[] obstacles = new Pipe[2];
 Score score;
 PImage backgroundImage;
+PImage startscreenImage;
 boolean gameStarted = false;
 boolean gameOver = false;
+int gamestate = 0;
+
+//seperate background size
+void settings() {
+  size(288,384);
+  size(304,500);
+ 
+  
+}
 
 void setup() {
-  size(288,384);
-
+  
   bird = new Bird(width/2, 0);
-  obstacles[0] = new Obstacle(width, random(100, height-100));
-  obstacles[1] = new Obstacle(width*1.5+25, random(100, height-100));
+  obstacles[0] = new Pipe(width, random(100, height-100));
+  obstacles[1] = new Pipe(width*1.5+25, random(100, height-100));
   score = new Score();
   backgroundImage = loadImage("background.jpg");
+  startscreenImage = loadImage("StartScreen.jpg");
   
 }
 
 void draw() {
-  background(backgroundImage);
+  if(gamestate == 1) {
+    background(backgroundImage);
+  }else{
+    background(startscreenImage);
+  }
+  
+    
+   
+  
+  
+  
   
 //game over info
   if (gameOver) {
@@ -26,7 +46,7 @@ void draw() {
     drawStartScreen();
   } else {
     bird.draw();
-    for(Obstacle o : obstacles) { o.draw(); }
+    for(Pipe o : obstacles) { o.draw(); }
     score.draw();
     detectCollision();
   }
@@ -35,17 +55,22 @@ void draw() {
 
 void mousePressed() {
   action();
-}
+  if(gamestate == 1) {
+  }
+ 
+  }
+
 
 void keyPressed() {
   action();
 }
+
 //resets game if game is over
 void action() {
   if (gameOver) {
     gameOver = false;
     bird.reset();
-    for(Obstacle o : obstacles) { o.reset(); }
+    for(Pipe o : obstacles) { o.reset(); }
     score.reset();
   } else if (!gameStarted) {
     gameStarted = true;
@@ -60,7 +85,7 @@ void drawGameOver() {
   textSize(32);
   textAlign(CENTER, CENTER);
   fill(0);
-  text("Game over!",
+  text("You Died!",
        width/2, height/2,
        width, 100);
 }
@@ -70,9 +95,10 @@ void drawStartScreen() {
   textSize(32);
   textAlign(CENTER, CENTER);
   fill(0);
-  text("Click to start",
+  text("Click to Start",
        width/2, height/2,
        width, 100);
+ 
 }
 
 
@@ -81,7 +107,7 @@ void detectCollision() {
     gameOver = true;
   }
 //if you pass an obstacle you get a point
-  for(Obstacle obstacle : obstacles) {
+  for(Pipe obstacle : obstacles) {
     if (bird.x - bird.size/2.0 > obstacle.topX + obstacle.w) {
       score.increase();
     }
