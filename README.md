@@ -10,6 +10,7 @@ Happy Bird:
 The toughest part of this project was coding the gravity of the bird. 
 
 ### Most interesting piece of your code and explanation for what it does.
+```Java 
 int gamestate = 0;
 
 void draw() {
@@ -25,7 +26,7 @@ void draw() {
   }
  gamestate = 1;
   }
-
+```
 
 This is the code that changes from the Start Screen of the game to the Background image and you are actually able to play. Basically the if statement within the void draw basically says that if the gamestate = 1 then it shows the background image of the game but if it does not and the gamestate = 0 then it shows the start screen. Within the mousepressed function that is what actually changes the gamestate between the two.
 
