@@ -10,28 +10,25 @@ Happy Bird:
 The toughest part of this project was coding the gravity of the bird. 
 
 ### Most interesting piece of your code and explanation for what it does.
+int gamestate = 0;
 
-```Java
-void keyPressed() {
-if (keyCode == LEFT) {
-   tree= tree.getLeft();
-   System.out.println(tree.getValue());
-   String s=(String)tree.getValue();
-   fill(155);
-   textSize(50);
-} else if (keyCode == RIGHT) {
-   tree = tree.getRight();
-   System.out.println(tree.getValue());
-   String s=(String)tree.getValue();
-   fill(155);
-   textSize(50);
-} else if (tree.getLeft()==null&&tree.getRight()==null) {
-   System.out.println(tree.getValue());
-   tree=t.returnTree();
-}
-}
-```
-This is the code that moves down the tree as decisions are made. It gets each value from both left and right and also casts the value to a String. If the progressions arrives at the leaf nodes, those values are printed.
+void draw() {
+  if(gamestate == 1) {
+    image(backgroundImage, 0,0,width,height);
+  }else{
+    background(startscreenImage);
+  }
+  
+  void mousePressed() {
+  action();
+  if(gamestate == 0) {
+  }
+ gamestate = 1;
+  }
+
+
+This is the code that changes from the Start Screen of the game to the Background image and you are actually able to play. Basically the if statement within the void draw basically says that if the gamestate = 1 then it shows the background image of the game but if it does not and the gamestate = 0 then it shows the start screen. Within the mousepressed function that is what actually changes the gamestate between the two.
+
 ## Built With
 
 * [Processing](https://processing.org/) - The IDE used
