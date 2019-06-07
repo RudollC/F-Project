@@ -2,7 +2,7 @@
 My Final Project
 # Project Title and purpose
 
-Happy Bird
+Happy Bird:
    The purpose of this project was to create a fun and entertaining game for the users while using coding skills learned from over the entire year. Also the purpose of this project was to teach myself and learn more about certain fucntions and how they can help make your code better. Making Happy Bird was a fun and enteraining project to make and I learned how to use many new functions along the way. 
 
 ### Difficulties or opportunities you encountered along the way.
